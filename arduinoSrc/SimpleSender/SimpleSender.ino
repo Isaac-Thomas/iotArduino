@@ -16,7 +16,7 @@
 #define DISABLE_CODE_FOR_RECEIVER // Disables restarting receiver after each send. Saves 450 bytes program memory and 269 bytes RAM if receiving functions are not used.
 //#define SEND_PWM_BY_TIMER         // Disable carrier PWM generation in software and use (restricted) hardware PWM.
 //#define USE_NO_SEND_PWM           // Use no carrier PWM, just simulate an active low receiver signal. Overrides SEND_PWM_BY_TIMER definition
-#define numCommands 7
+#define numCommands 10
 
 #include "PinDefinitionsAndMore.h" // Define macros for input and output pin etc.
 #include <IRremote.hpp>
@@ -55,16 +55,22 @@ uint32_t high[]={0x420C0488, 0xCE06000A};
 uint32_t eco[]={0xC20C0488, 0x4E06000A};
 uint32_t low[]={0x20C0488, 0x8E06000A};
 uint32_t rLow[]={0x28C0488, 0xE06000A};
+uint32_t rMed[]={0x828C0488, 0x8E06000A};
+uint32_t rHigh[]={0x428C0488, 0x4E06000A};
+uint32_t rEco[]={0xC28C0488, 0xCE06000A};
 
 //grouping signals into array
 uint32_t* controlArray[numCommands]{
-  on,
-  off,
-  med,
-  high,
-  eco,
-  low,
-  rLow
+  on,    //0
+  off,   //1
+  eco,   //2
+  low,   //3
+  med,   //4
+  high,  //5
+  rEco,  //6
+  rLow,  //7
+  rMed,  //8
+  rHigh  //9
 };
 
 int incomingByte = 0; // for incoming serial data
