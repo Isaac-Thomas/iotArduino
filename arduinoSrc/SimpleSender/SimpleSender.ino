@@ -66,8 +66,22 @@ uint32_t* controlArray[numCommands]{
   rLow
 };
 void loop() {
-  for(int i=0;i<numCommands;i++){
-    IrSender.sendPulseDistanceWidthFromArray(38, 9200, 4800, 550, 1650, 550, 600, &controlArray[i][0], 64, PROTOCOL_IS_LSB_FIRST, 100, 0);
-    delay(3000);  // delay must be greater than 5 ms (RECORD_GAP_MICROS), otherwise the receiver sees it as one long signal
-  };
+
+  if (Serial.available() > 0) {
+    // read the incoming byte:
+    incomingByte = Serial.read();
+
+    // say what you got:
+    //Serial.print("I received: ");
+    //Serial.println(incomingByte, DEC);
+    for(int i=0;i<numCommands;i++){
+      if((incomingByte-48)==i){
+        Serial.print(i);
+        Serial.println();
+        IrSender.sendPulseDistanceWidthFromArray(38, 9200, 4800, 550, 1650, 550, 600, &controlArray[i][0], 64, PROTOCOL_IS_LSB_FIRST, 100, 0);
+        delay(3000);  // delay must be greater than 5 ms (RECORD_GAP_MICROS), otherwise the receiver sees it as one long signal
+      }
+    }
+  }
+
 }
