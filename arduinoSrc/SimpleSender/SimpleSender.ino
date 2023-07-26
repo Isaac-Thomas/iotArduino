@@ -65,6 +65,9 @@ uint32_t* controlArray[numCommands]{
   low,
   rLow
 };
+
+int incomingByte = 0; // for incoming serial data
+
 void loop() {
 
   if (Serial.available() > 0) {
