@@ -47,7 +47,7 @@ void setup() {
 uint8_t sCommand = 0x34;
 uint8_t sRepeats = 0;
 
-//low fan speed same as on signal
+//fan IR signals
 uint32_t on[]={0x20C0488, 0x8E06000A};
 uint32_t off[]={0x20C0408, 0xE06000A};
 uint32_t med[]={0x820C0488, 0xE06000A};
@@ -56,6 +56,7 @@ uint32_t eco[]={0xC20C0488, 0x4E06000A};
 uint32_t low[]={0x20C0488, 0x8E06000A};
 uint32_t rLow[]={0x28C0488, 0xE06000A};
 
+//grouping signals into array
 uint32_t* controlArray[numCommands]{
   on,
   off,
@@ -74,15 +75,14 @@ void loop() {
     // read the incoming byte:
     incomingByte = Serial.read();
 
-    // say what you got:
-    //Serial.print("I received: ");
-    //Serial.println(incomingByte, DEC);
-    for(int i=0;i<numCommands;i++){
-      if((incomingByte-48)==i){
+    for(int i=0;i<numCommands;i++){ //check serial input against range of commandArray
+      if((incomingByte-48)==i){ //ascii offset
+
         Serial.print(i);
         Serial.println();
+
         IrSender.sendPulseDistanceWidthFromArray(38, 9200, 4800, 550, 1650, 550, 600, &controlArray[i][0], 64, PROTOCOL_IS_LSB_FIRST, 100, 0);
-        delay(3000);  // delay must be greater than 5 ms (RECORD_GAP_MICROS), otherwise the receiver sees it as one long signal
+        delay(100);  // delay must be greater than 5 ms (RECORD_GAP_MICROS), otherwise the receiver sees it as one long signal
       }
     }
   }
