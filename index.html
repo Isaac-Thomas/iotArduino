@@ -7,44 +7,50 @@
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/gh/makeabilitylab/p5js/_libraries/serial.js"></script>
-    <h1>Web Serial Tutorial</h1>
-    <p>Fan speed controller via Serial connection</p>
-    <button id="connectButton" onclick="onConnect()">Connect via serial port</button>
-    
-    <br>
-    <input id="slider" type="range" min="2" max="5" 
-    value="128" onchange="onSliderValueChanged(this, event)" />
-    <input type="checkbox" id="rotateButton" onchange="rotate=!rotate; onSliderValueChanged(slider)">Rotation</button>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <p>Fan speed controller via Serial connection to Arduino. Utilizes IR communication through an Arduino Uno.</p>
+        <button id="connectButton" onclick="onConnect()">Connect via serial port</button><br>
+        
+        <input id="slider" type="range" min="2" max="5" 
+        value="128" onchange="onSliderValueChanged(this, event)" /><br>
 
-    <script>
+        <input type="radio" id="eco" name="fanSpeed" value="2">
+        <label for="eco">Eco</label><br>
+        <input type="radio" id="low" name="fanSpeed" value="3">
+        <label for="low">Low</label><br>
+        <input type="radio" id="med" name="fanSpeed" value="4">
+        <label for="med">Medium</label><br>
+        <input type="radio" id="high" name="fanSpeed" value="5">
+        <label for="high">High</label><br>
 
+        <input type="checkbox" id="rotateButton" onchange="rotate=!rotate; onSliderValueChanged(slider)">Rotation</button>
+    </div>
+    <script type="module">
+        
+        import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+        
         var rotate = false;
+
+        createApp({
+            setup() {
+
+            const message = ref('Arduino Fan Controller');
+
+            return {
+                message
+            }
+
+            }
+        }).mount('#app')
+
 
         const serial = new Serial();
         serial.on(SerialEvents.CONNECTION_OPENED, onSerialConnectionOpened);
         serial.on(SerialEvents.CONNECTION_CLOSED, onSerialConnectionClosed);
         serial.on(SerialEvents.DATA_RECEIVED, onSerialDataReceived);
         serial.on(SerialEvents.ERROR_OCCURRED, onSerialErrorOccurred);
-
-        function onSerialErrorOccurred(eventSender, error) {
-            console.log("onSerialErrorOccurred", error);
-        }
-
-        function onSerialConnectionOpened(eventSender) {
-            console.log("onSerialConnectionOpened", eventSender);
-        }
-
-        function onSerialConnectionClosed(eventSender) {
-            console.log("onSerialConnectionClosed", eventSender);
-        }
-
-        function onSerialDataReceived(eventSender, newData) {
-            console.log("onSerialDataReceived", newData);
-        }
-
-        async function onConnectButtonClick() {
-            console.log("Connect button clicked!");
-        }
 
         async function onConnect(){
             console.log('connect button clicked!');
@@ -64,8 +70,25 @@
             let  returnValue = rotate? (parseInt(src.value) + 4) : src.value; //offsets to access roation commands
             console.log(returnValue, typeof(returnValue));
             console.log("Writing to serial: ", returnValue.toString());
-            //serial.writeLine(src.value);
+            serial.writeLine(returnValue);
         }
+
+        function onSerialErrorOccurred(eventSender, error) {
+            console.log("onSerialErrorOccurred", error);
+        }
+
+        function onSerialConnectionOpened(eventSender) {
+            console.log("onSerialConnectionOpened", eventSender);
+        }
+
+        function onSerialConnectionClosed(eventSender) {
+            console.log("onSerialConnectionClosed", eventSender);
+        }
+
+        function onSerialDataReceived(eventSender, newData) {
+            console.log("onSerialDataReceived", newData);
+        }
+
     </script>
 </body>
 </html>
