@@ -27,12 +27,8 @@
 
         <input type="checkbox" id="rotateButton" onchange="rotate=!rotate; onSliderValueChanged(slider)">Rotation</button>
     </div>
-    <script type="module">
-        
-        import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
-        
-        var rotate = false;
-
+    <script>
+        const { createApp, ref } = Vue        
         createApp({
             setup() {
 
@@ -45,6 +41,7 @@
             }
         }).mount('#app')
 
+        var rotate = false;
 
         const serial = new Serial();
         serial.on(SerialEvents.CONNECTION_OPENED, onSerialConnectionOpened);
