@@ -22,10 +22,12 @@
             <v-btn class="ma-4"  @click="onConnect()" >
                 <v-icon start icon="mdi-access-point"></v-icon>
                 Connect via Serial
+                <v-badge v-if="isOpen" inline dot color="success"/> 
             </v-btn><br>
             <v-btn class="ma-4" @click="powerSwitch()">
                 <v-icon start icon="mdi-power-standby"></v-icon>
                 Toggle Power
+                <v-badge inline dot :color="power?'success':'error'"/> 
             </v-btn>
             <v-card class="ma-4" style="width: 250px;" prepend-icon="mdi-fan">
                 <template v-slot:title>
@@ -56,6 +58,7 @@
             const power = ref(false);
             const rotate = ref(false);
             const fanSpeed = ref(3);
+            const isOpen = ref(false);
 
             const serial = new Serial();
             serial.on(SerialEvents.CONNECTION_OPENED, onSerialConnectionOpened);
@@ -96,7 +99,7 @@
 
                 if (navigator.serial) {
                     if (!serial.isOpen()) {
-                    await serial.connectAndOpen(null,{ baudRate: 115200 });
+                        await serial.connectAndOpen(null,{ baudRate: 115200 });
                     } else {
                     console.log("The serial connection appears already open");
                     }
@@ -129,14 +132,18 @@
 
             function onSerialErrorOccurred(eventSender, error) {
                 console.log("onSerialErrorOccurred", error);
+                isOpen.value = false;
             }
 
             function onSerialConnectionOpened(eventSender) {
                 console.log("onSerialConnectionOpened", eventSender);
+                isOpen.value = true;
             }
 
             function onSerialConnectionClosed(eventSender) {
                 console.log("onSerialConnectionClosed", eventSender);
+                isOpen.value = false;
+                power.value  = false;
             }
 
             function onSerialDataReceived(eventSender, newData) {
@@ -157,6 +164,7 @@
             powerOn,
             powerOff,
             powerSwitch,
+            isOpen
             }
         }
         }).use(vuetify).mount('#app')
