@@ -1,1 +1,16 @@
-# iotArduino
+# iotArduino Project
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+I included a few resources I used to help me design this project. Check out the following links to learn more about the frameworks and componenets I used.
+
+* [WebSerial Javascript API](https://makeabilitylab.github.io/physcomp/communication/web-serial.html)
+* [Dijikey Partslist](https://www.digikey.ca/en/maker/blogs/2021/how-to-send-and-receive-ir-signals-with-a-raspberry-pi)
+* [Arduino IRremote Library](https://randomnerdtutorials.com/arduino-ir-remote-control/)
+* [Vuetify API Documentation](https://vuetifyjs.com/en/getting-started/installation/)
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[product-screenshot]: images/uiDemo.png
+[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
