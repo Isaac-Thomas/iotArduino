@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <div id="app">
             <h1>Arduino Fan Controller</h1>
-            <p class="mx-4 mt-2">Fan speed controller via Serial connection to Arduino, <br> 
+            <p class="mx-4 mt-4">Fan speed controller via Serial connection to Arduino, <br> 
                 utilizes IR communication through an Arduino Uno.
             </p><br>
             <v-btn class="ma-4"  @click="onConnect()" >
@@ -27,19 +27,22 @@
                 <v-icon start icon="mdi-power-standby"></v-icon>
                 Toggle Power
             </v-btn>
-            <v-card class="ma-4" style="width: 250px;" text="Select fan speed:">
+            <v-card class="ma-4" style="width: 250px;" prepend-icon="mdi-fan">
+                <template v-slot:title>
+                    Fan Speed
+                  </template>
                 <v-radio-group v-model="fanSpeed" :disabled="!power">
-                    <v-radio label="Eco" :value="2"></v-radio>
-                    <v-radio label="Low" :value="3"></v-radio>
-                    <v-radio label="Medium" :value="4"></v-radio>
-                    <v-radio label="High" :value="5"></v-radio>
+                    <v-radio class="mx-4" label="Eco" :value="2"></v-radio>
+                    <v-radio class="mx-4" label="Low" :value="3"></v-radio>
+                    <v-radio class="mx-4" label="Medium" :value="4"></v-radio>
+                    <v-radio class="mx-4" label="High" :value="5"></v-radio>
                 </v-radio-group>
             </v-card>
             <v-switch class="ma-4" v-model="rotate" :disabled="!power">
                 <template v-slot:label>
                     <v-icon start icon="mdi-restore"></v-icon>
                     Enable Rotation
-                  </template>
+                </template>
             </v-switch>
         </div>
     <script>
@@ -52,7 +55,7 @@
         setup() {
             const power = ref(false);
             const rotate = ref(false);
-            const fanSpeed = ref(2);
+            const fanSpeed = ref(3);
 
             const serial = new Serial();
             serial.on(SerialEvents.CONNECTION_OPENED, onSerialConnectionOpened);
@@ -93,7 +96,7 @@
 
                 if (navigator.serial) {
                     if (!serial.isOpen()) {
-                    await serial.connectAndOpen();
+                    await serial.connectAndOpen(null,{ baudRate: 115200 });
                     } else {
                     console.log("The serial connection appears already open");
                     }
@@ -108,12 +111,13 @@
                 }
             };
             async function powerOn(){
-                let returnValue = 1;
+                let returnValue = 0;
                 console.log("Sending Power-on signal over serial: ", returnValue.toString());
                 serial.writeLine(returnValue.toString());
+                setTimeout(await onFanSpeedChange(fanSpeed.value), 500);
             };
             async function powerOff(){
-                let returnValue= 0 ;
+                let returnValue= 1;
                 console.log("Sending Power-off signal over serial: ", returnValue.toString());
                 serial.writeLine(returnValue.toString());
             };
@@ -145,6 +149,7 @@
             power,
             onConnect,
             onFanSpeedChange,
+            serial,
             onSerialErrorOccurred,
             onSerialConnectionOpened,
             onSerialConnectionClosed,
