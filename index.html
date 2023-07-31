@@ -13,20 +13,34 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/makeabilitylab/p5js/_libraries/serial.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@3.3.10/dist/vuetify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <div id="app">
             <h1>Arduino Fan Controller</h1>
-            <p>Fan speed controller via Serial connection to Arduino. Utilizes IR communication through an Arduino Uno.</p>
-            <v-btn class="ma-4" @click="onConnect()">Connect via Serial</v-btn>
-            <v-switch class="ma-4" v-model="power" label="Power-On"></v-switch>
-
-            <v-radio-group v-model="fanSpeed" :disabled="!power">
-                <v-radio label="Eco" :value="2"></v-radio>
-                <v-radio label="Low" :value="3"></v-radio>
-                <v-radio label="Medium" :value="4"></v-radio>
-                <v-radio label="High" :value="5"></v-radio>
-              </v-radio-group>
-
-            <v-switch v-model="rotate" label="Enable Rotation" :disabled="!power"></v-switch>
+            <p class="mx-4 mt-2">Fan speed controller via Serial connection to Arduino, <br> 
+                utilizes IR communication through an Arduino Uno.
+            </p><br>
+            <v-btn class="ma-4"  @click="onConnect()" >
+                <v-icon start icon="mdi-access-point"></v-icon>
+                Connect via Serial
+            </v-btn><br>
+            <v-btn class="ma-4" @click="powerSwitch()">
+                <v-icon start icon="mdi-power-standby"></v-icon>
+                Toggle Power
+            </v-btn>
+            <v-card class="ma-4" style="width: 250px;" text="Select fan speed:">
+                <v-radio-group v-model="fanSpeed" :disabled="!power">
+                    <v-radio label="Eco" :value="2"></v-radio>
+                    <v-radio label="Low" :value="3"></v-radio>
+                    <v-radio label="Medium" :value="4"></v-radio>
+                    <v-radio label="High" :value="5"></v-radio>
+                </v-radio-group>
+            </v-card>
+            <v-switch class="ma-4" v-model="rotate" :disabled="!power">
+                <template v-slot:label>
+                    <v-icon start icon="mdi-restore"></v-icon>
+                    Enable Rotation
+                  </template>
+            </v-switch>
         </div>
     <script>
         const { createApp, ref, watch } = Vue;
@@ -58,11 +72,21 @@
             { deep: true }
             );
 
-            watch(power, (p)=>{
-                p?powerOn():powerOff();
-            },
-            { deep: true }
-            );
+            function powerSwitch(){
+                power.value=!power.value;
+                if(serial.serialWriter){
+                    power.value?powerOn():powerOff();
+                }
+                else if(!serial.serialWriter){
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Please initialize serial connection first',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+                    power.value=!power.value;
+                }
+            };
 
             async function onConnect(){
                 console.log('connect button clicked!');
@@ -75,37 +99,28 @@
                     }
                 } 
                 else {
-                    alert('The Web Serial API does not appear supported on this web browser.');
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'The Web Serial API does not appear supported on this web browser. Are you using a supported browser (ie. Chrome/Edge)?',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
                 }
             };
             async function powerOn(){
-                power.value = true;
-                returnValue = 1;
+                let returnValue = 1;
                 console.log("Sending Power-on signal over serial: ", returnValue.toString());
-                                
-                if(!serial.serialWriter){
-                    console.log("Please initialize serial connection", serial);
-                }
-                else{
-                    serial.writeLine(returnValue);
-                }
+                serial.writeLine(returnValue.toString());
             };
             async function powerOff(){
-                power.value = false;
-                returnValue= 0 ;
+                let returnValue= 0 ;
                 console.log("Sending Power-off signal over serial: ", returnValue.toString());
-                
-                if(!serial.serialWriter){
-                    console.log("Please initialize serial connection", serial);
-                }
-                else{
-                    serial.writeLine(returnValue);
-                }
+                serial.writeLine(returnValue.toString());
             };
             async function onFanSpeedChange(fanSpeed) {
                 let  returnValue = rotate.value ? (parseInt(fanSpeed) + 4) : fanSpeed; //offsets to access roation commands
                 console.log("Writing to serial: ", returnValue.toString());
-                //serial.writeLine(returnValue);
+                serial.writeLine(returnValue);
             }
 
             function onSerialErrorOccurred(eventSender, error) {
@@ -135,7 +150,8 @@
             onSerialConnectionClosed,
             onSerialDataReceived,
             powerOn,
-            powerOff
+            powerOff,
+            powerSwitch,
             }
         }
         }).use(vuetify).mount('#app')
