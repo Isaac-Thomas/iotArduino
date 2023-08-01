@@ -45,7 +45,7 @@ I included a few resources I used to help me design this project. Check out the 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[product-screenshot]: images/uiDemo.png
+[product-screenshot]: images/uiDemo1.png
 [circuit-picture]: images/IMG_1640.jpg
 [vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
 [vuetfy]: https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg
