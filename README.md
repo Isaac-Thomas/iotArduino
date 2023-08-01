@@ -31,7 +31,7 @@ Utilizing the Vue.js framework allowed for reactivity implementation and other u
 
 ![Circuit-picture][circuit-picture]
 
-2 IR LEDs are used in parallel to provide a larger singal transmission range. The npm transistor acts as a current amplifier, mitigating the maximum current draw of the Arudino I/O pins. The receiver and transmittor can be connected at the same time to the board as they use different I/O pins.
+2 IR LEDs are used in parallel to provide a larger singal transmission range. The npm transistor acts as a current amplifier, mitigating the maximum current draw of the Arudino I/O pins. The receiver and transmittor can be connected at the same time to the board as they use different I/O pins. The right hand side of the breadboard shows the IR receiver, which is used to obtain signals from a device's IR remote.
 
 
 ## Using this Repo
