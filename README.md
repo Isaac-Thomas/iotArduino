@@ -10,10 +10,9 @@ Designing a web interface using the Vue.js javascript framework and Vuetify comp
 ![Demo][product-screenshot]
 
 ### Web Frameworks Used
-* Vue.js ![Vue][vue.js =150x]
-* Vuetify ![Vuetify][vuetify =150x]
-* Sweetalert2 ![Sweetalert2][sweetalert2 =150x]
-
+* Vue.js ![Vue][vue.js]
+* Vuetify ![Vuetify][vuetify]
+* Sweetalert2 ![Sweetalert2][sweetalert2]
 ## Hardware Partslist
 * 2 IR LEDs
 * 2 36 ohm reistors
