@@ -17,6 +17,8 @@ Designing a web interface using the Vue.js javascript framework and Vuetify comp
 * Sweetalert2 
 [<br><img src="https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png" width="250"/>](https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png)
 
+Vue framework allowed for reactivity implementation and other useful features. Also allows for vuetify framwork support, making it easy to build a simple UI. Sweetalert library used to replace traditional javascript alerts with a more visually-appealing alternative.
+
 ## Hardware Partslist
 * 2 IR LEDs
 * 2 36 ohm reistors
@@ -33,7 +35,7 @@ Designing a web interface using the Vue.js javascript framework and Vuetify comp
 ## Using this Repo
 To run the arduino code, first install and configure the IRremote library using the Arduino IDE. Run the IRreceiveDump example that comes with the library to obtain readings from whichever device/remote you are using, utilizing the IR receiver. This program will identify and output the IR protocol and values to the serial console.
 
-After obtaining these readings, modify the SimpleSender.ino sketch as necessary to work with your device. Finally, host the index.html page to run the web interface. The "Live Server" extension for VS Code is recommended to do this.
+After obtaining these readings, modify the SimpleSender.ino sketch as necessary to work with your device. Finally, host the index.html page to run the web interface. The "Live Server" extension for VS Code is recommended to do this. WebSerial is only supported on Edge, Chrome and Opera browsers so use one of these.
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
