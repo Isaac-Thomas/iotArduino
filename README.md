@@ -11,11 +11,11 @@ Designing a web interface using the Vue.js javascript framework and Vuetify comp
 
 ### Web Frameworks Used
 * Vue.js 
-[<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--VtIgiqJe--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/d440mmj72v2vi7ad76ir.png" width="150"/>](https://res.cloudinary.com/practicaldev/image/fetch/s--VtIgiqJe--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/d440mmj72v2vi7ad76ir.png)
+[<br><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--VtIgiqJe--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/d440mmj72v2vi7ad76ir.png" width="150"/>](https://res.cloudinary.com/practicaldev/image/fetch/s--VtIgiqJe--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/d440mmj72v2vi7ad76ir.png)
 * Vuetify 
-[<img src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg" width="250"/>](https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg)
+[<br><img src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg" width="250"/>](https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg)
 * Sweetalert2 
-[<img src="https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png" width="250"/>](https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png)
+[<br><img src="https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png" width="250"/>](https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png)
 
 ## Hardware Partslist
 * 2 IR LEDs
