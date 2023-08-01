@@ -13,9 +13,9 @@ Designing a web interface using the Vue.js javascript framework and Vuetify comp
 * Vue.js 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png" alt="vuejs" width="100"/>
 * Vuetify 
-<img src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg" alt="vuetify" width="100"/>
+<img src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg" alt="vuetify" width="200"/>
 * Sweetalert2 
-<img src="https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png" alt="sweetalert2" width="100"/>
+<img src="https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png" alt="sweetalert2" width="200"/>
 
 ## Hardware Partslist
 * 2 IR LEDs
