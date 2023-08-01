@@ -1,4 +1,4 @@
-# iotArduino Project
+# Arduino IR Web Interface Project
 
 ## Overview
 This project utliizes an Arudino Uno, with both infrared receiver and transmittor circuits to obtain and send IR readings to a remote-controlled fan. 
@@ -21,7 +21,7 @@ Utilizing the Vue.js framework allowed for reactivity implementation and other u
 
 ![Alert-picture][alert-picture]
 
-## Hardware Partslist
+## Hardware Parts List
 * 2 IR LEDs
 * 2 36 ohm reistors
 * 1 NPM Transistor
