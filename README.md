@@ -10,9 +10,9 @@ Designing a web interface using the Vue.js javascript framework and Vuetify comp
 ![Demo][product-screenshot]
 
 ### Web Frameworks Used
-* Vue.js ![Vue.js][vue.js]
-* Vuetify ![Vuetify][vuetfy]
-* Sweetalert2 ![Sweetalert2][sweetalert2]
+* Vue.js <img src="https://segwitz.com/wp-content/uploads/2021/06/vuejs-development-malaysia.jpeg" alt="vuejs" width="100"/>
+* Vuetify <img src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg" alt="vuetify" width="100"/>
+* Sweetalert2 <img src="https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png" alt="sweetalert2" width="100"/>
 
 ## Hardware Partslist
 * 2 IR LEDs
