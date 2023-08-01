@@ -1,5 +1,8 @@
 # iotArduino Project
 
+## Overview
+This project utliizes an Arudino Uno, with both infrared receiver and transmittor circuits to obtain and send IR readings to a remote-controlled fan. Using the IRremote library and the 
+
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
@@ -7,7 +10,7 @@ I included a few resources I used to help me design this project. Check out the 
 
 * [WebSerial Javascript API](https://makeabilitylab.github.io/physcomp/communication/web-serial.html)
 * [Dijikey Partslist](https://www.digikey.ca/en/maker/blogs/2021/how-to-send-and-receive-ir-signals-with-a-raspberry-pi)
-* [Arduino IRremote Library](https://randomnerdtutorials.com/arduino-ir-remote-control/)
+* [Arduino IRremote Library Tutorial](https://randomnerdtutorials.com/arduino-ir-remote-control/)
 * [Vuetify API Documentation](https://vuetifyjs.com/en/getting-started/installation/)
 
 
