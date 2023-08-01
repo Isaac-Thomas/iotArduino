@@ -17,7 +17,9 @@ Designing a web interface using the Vue.js javascript framework and Vuetify comp
 * Sweetalert2 
 [<br><img src="https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png" width="250"/>](https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png)
 
-Vue framework allowed for reactivity implementation and other useful features. Also allows for vuetify framwork support, making it easy to build a simple UI. Sweetalert library used to replace traditional javascript alerts with a more visually-appealing alternative.
+Utilizing the Vue.js framework allowed for reactivity implementation and other useful features. Vue.js also adds suport for the vuetify framwork, making it easy to build a simple UI. Sweetalert library is used to replace traditional javascript alerts with a more visually-appealing alternative.
+
+![Alert-picture][alert-picture]
 
 ## Hardware Partslist
 * 2 IR LEDs
@@ -51,6 +53,7 @@ I included a few resources I used to help me design this project. Check out the 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: images/uiDemo1.png
 [circuit-picture]: images/IMG_1640.jpg
+[alert-picture]: images/sweetalert.png
 [vue.js]: https://res.cloudinary.com/practicaldev/image/fetch/s--VtIgiqJe--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/d440mmj72v2vi7ad76ir.png
 [vuetify]: https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg
 [sweetalert2]: https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png
