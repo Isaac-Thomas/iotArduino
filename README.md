@@ -7,8 +7,8 @@ Using the IRremote library and the IRreceieveDump sketch, I obtained readings fr
 
 Designing a web interface using the Vue.js javascript framework and Vuetify component framework, I designed a webpage to control the Arduino through the UART serial interface via a Javascript WebSerial library. 
 
-[![Demo][product-screenshot]]
-[![Vue][Vue.js]]
+![Demo][product-screenshot]
+![Vue][Vue.js]
 
 ## Overview
 
