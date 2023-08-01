@@ -10,9 +10,9 @@ Designing a web interface using the Vue.js javascript framework and Vuetify comp
 ![Demo][product-screenshot]
 
 ### Web Frameworks Used
-* Vue.js ![Vue][vue.js]
-* Vuetify ![Vuetify][vuetify]
-* Sweetalert2 ![Sweetalert2][sweetalert2]
+* Vue.js ![](https://res.cloudinary.com/practicaldev/image/fetch/s--VtIgiqJe--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/d440mmj72v2vi7ad76ir.png =150x)
+* Vuetify ![Vuetify](https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg =150x)
+* Sweetalert2 ![Sweetalert2](https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png =150x)
 ## Hardware Partslist
 * 2 IR LEDs
 * 2 36 ohm reistors
@@ -46,5 +46,5 @@ I included a few resources I used to help me design this project. Check out the 
 [product-screenshot]: images/uiDemo1.png
 [circuit-picture]: images/IMG_1640.jpg
 [vue.js]: https://res.cloudinary.com/practicaldev/image/fetch/s--VtIgiqJe--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/d440mmj72v2vi7ad76ir.png
-[vuetfy]: https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg
+[vuetify]: https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg
 [sweetalert2]: https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png
