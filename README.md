@@ -8,9 +8,29 @@ Using the IRremote library and the IRreceieveDump sketch, I obtained readings fr
 Designing a web interface using the Vue.js javascript framework and Vuetify component framework, I designed a webpage to control the Arduino through the UART serial interface via a Javascript WebSerial library. 
 
 ![Demo][product-screenshot]
-![Vue][Vue.js]
 
-## Overview
+### Web Frameworks Used
+* Vue.js ![Vue.js][vue.js]
+* Vuetify ![Vuetify][vuetfy]
+* Sweetalert2 ![Sweetalert2][sweetalert2]
+
+## Hardware Partslist
+* 2 IR LEDs
+* 2 36 ohm reistors
+* 1 NPM Transistor
+* 1 IR Receiver (38 kHz)
+* 1 1k ohm resistor
+* 1 Arduino Uno
+
+![Circuit-picture][circuit-picture]
+
+2 IR LEDs are used in parallel to provide a larger singal transmission range. The npm transistor acts as a current amplifier, mitigating the maximum current draw of the Arudino I/O pins. The receiver and transmittor can be connected at the same time to the board as they use different I/O pins.
+
+
+## Using this Repo
+To run the arduino code, first install and configure the IRremote library using the Arduino IDE. Run the IRreceiveDump example that comes with the library to obtain readings from whichever device/remote you are using, utilizing the IR receiver. This program will identify and output the IR protocol and values to the serial console.
+
+After obtaining these readings, modify the SimpleSender.ino sketch as necessary to work with your device. 
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
@@ -25,4 +45,7 @@ I included a few resources I used to help me design this project. Check out the 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: images/uiDemo.png
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[circuit-picture]: images/IMG_1640.jpg
+[vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[vuetfy]: https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg
+[sweetalert2]: https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png
