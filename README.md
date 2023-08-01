@@ -10,10 +10,9 @@ Designing a web interface using the Vue.js javascript framework and Vuetify comp
 ![Demo][product-screenshot]
 
 ### Web Frameworks Used
- * Vue.js
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png" alt="vuejs" width="100"/>
-<img src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg" alt="vuetify" width="200"/>
-<img src="https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png" alt="sweetalert2" width="200"/>
+* Vue.js ![Vue][vue.js =150x]
+* Vuetify ![Vuetify][vuetify =150x]
+* Sweetalert2 ![Sweetalert2][sweetalert2 =150x]
 
 ## Hardware Partslist
 * 2 IR LEDs
@@ -31,7 +30,7 @@ Designing a web interface using the Vue.js javascript framework and Vuetify comp
 ## Using this Repo
 To run the arduino code, first install and configure the IRremote library using the Arduino IDE. Run the IRreceiveDump example that comes with the library to obtain readings from whichever device/remote you are using, utilizing the IR receiver. This program will identify and output the IR protocol and values to the serial console.
 
-After obtaining these readings, modify the SimpleSender.ino sketch as necessary to work with your device. 
+After obtaining these readings, modify the SimpleSender.ino sketch as necessary to work with your device. Finally, host the index.html page to run the web interface. The "Live Server" extension for VS Code is recommended to do this.
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
@@ -47,6 +46,6 @@ I included a few resources I used to help me design this project. Check out the 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: images/uiDemo1.png
 [circuit-picture]: images/IMG_1640.jpg
-[vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[vue.js]: https://res.cloudinary.com/practicaldev/image/fetch/s--VtIgiqJe--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/d440mmj72v2vi7ad76ir.png
 [vuetfy]: https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg
 [sweetalert2]: https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png
