@@ -1,6 +1,8 @@
 # Arduino IR Web Interface Project
 
 ## Overview
+Note: To see a demo of this project, check out the Demo View.mp4 file in this repo.
+
 This project utliizes an Arudino Uno, with both infrared receiver and transmittor circuits to obtain and send IR readings to a remote-controlled fan. 
 
 Using the IRremote library and the IRreceieveDump sketch, I obtained readings from an IR remote that controls a standing room fan. Using the timings and values obtained from this remote, I created an IR transmittor circuit that emitts these same values.
