@@ -1,7 +1,7 @@
 # Arduino IR Web Interface Project
 
 ## Overview
-Note: To see a demo of this project, check out the Demo View.mp4 file in this repo.
+Note: To see a demo of this project, check out the **Demo View.mp4** file in this repo. View the production site at https://iotarduino.netlify.app/
 
 This project utliizes an Arudino Uno, with both infrared receiver and transmittor circuits to obtain and send IR readings to a remote-controlled fan. 
 
