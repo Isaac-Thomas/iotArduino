@@ -1,13 +1,13 @@
 # Arduino IR Web Interface Project
 
 ## Overview
-Note: To see a demo of this project, check out the **Demo View.mp4** file in this repo. View the production site at https://iotarduino.netlify.app/
+Note: To see a demo of this project, check out the Demo View.mp4 file in this repo. View the production site at https://iotarduino.netlify.app/
 
-This project utliizes an Arudino Uno, with both infrared receiver and transmittor circuits to obtain and send IR readings to a remote-controlled fan. 
+This project utilises an Arduino Uno, with both infrared receiver and transmitter circuits to obtain and send IR readings to a remote-controlled fan.
 
-Using the IRremote library and the IRreceieveDump sketch, I obtained readings from an IR remote that controls a standing room fan. Using the timings and values obtained from this remote, I created an IR transmittor circuit that emitts these same values.
+Using the IRremote library and the IRreceieveDump sketch, I obtained readings from an IR remote that controls a Seaville Classics standing fan. Using the timings and values obtained from this remote, I created an IR transmitter circuit that emits these same values.
 
-Designing a web interface using the Vue.js javascript framework and Vuetify component framework, I designed a webpage to control the Arduino through the UART serial interface via a Javascript WebSerial library. 
+Designing a web interface using the Vue.js javascript framework and Vuetify component framework, I designed a webpage to control the Arduino through the UART serial interface via a Javascript WebSerial library.
 
 ![Demo][product-screenshot]
 
@@ -19,7 +19,7 @@ Designing a web interface using the Vue.js javascript framework and Vuetify comp
 * Sweetalert2 
 [<br><img src="https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png" width="250"/>](https://raw.githubusercontent.com/sweetalert2/sweetalert2/HEAD/assets/swal2-logo.png)
 
-Utilizing the Vue.js framework allowed for reactivity implementation and other useful features. Vue.js also adds suport for the vuetify framwork, making it easy to build a simple UI. Sweetalert library is used to replace traditional javascript alerts with a more visually-appealing alternative.
+Utilizing the Vue.js framework allowed for reactivity implementation and other useful features. Vue.js also adds support for the Vuetify framework, making it easy to build a simple UI. Sweetalert library is used to replace traditional javascript alerts with a more visually appealing alternative.
 
 ![Alert-picture][alert-picture]
 
@@ -33,18 +33,17 @@ Utilizing the Vue.js framework allowed for reactivity implementation and other u
 
 ![Circuit-picture][circuit-picture]
 
-2 IR LEDs are used in parallel to provide a larger singal transmission range. The npm transistor acts as a current amplifier, mitigating the maximum current draw of the Arudino I/O pins. The receiver and transmittor can be connected at the same time to the board as they use different I/O pins. The right hand side of the breadboard shows the IR receiver, which is used to obtain signals from a device's IR remote.
-
+2 IR LEDs are used in parallel to provide a larger signal transmission range. The npm transistor acts as a current amplifier, mitigating the maximum current draw of the Arduino I/O pins. The receiver and transmitter can be connected at the same time to the board as they use different I/O pins. The right-hand side of the breadboard shows the IR receiver, which is used to obtain signals from a device's IR remote.
 
 ## Using this Repo
-To run the arduino code, first install and configure the IRremote library using the Arduino IDE. Run the IRreceiveDump example that comes with the library to obtain readings from whichever device/remote you are using, utilizing the IR receiver. This program will identify and output the IR protocol and values to the serial console.
+To run the Arduino code, first install and configure the IRremote library using the Arduino IDE. Run the IRreceiveDump example that comes with the library to obtain readings from whichever device/remote you are using, utilizing the IR receiver. This program will identify and output the IR protocol and values to the serial console.
 
 After obtaining these readings, modify the SimpleSender.ino sketch as necessary to work with your device. Finally, host the index.html page to run the web interface. The "Live Server" extension for VS Code is recommended to do this. WebSerial is only supported on Edge, Chrome and Opera browsers so use one of these.
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-I included a few resources I used to help me design this project. Check out the following links to learn more about the frameworks and componenets I used.
+I included a few resources I used to help me design this project. Check out the following links to learn more about the frameworks and components I used.
 
 * [WebSerial Javascript API](https://makeabilitylab.github.io/physcomp/communication/web-serial.html)
 * [Dijikey Partslist](https://www.digikey.ca/en/maker/blogs/2021/how-to-send-and-receive-ir-signals-with-a-raspberry-pi)
